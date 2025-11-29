@@ -115,4 +115,34 @@ a:hover {
   text-decoration: none;
 }
 
+@media screen and (max-width: 480px) {
+  #newsletter {
+    padding: 15px;
+  }
+
+  header h1 {
+    font-size: 1rem;
+  }
+
+  header p {
+    font-size: 0.9rem;
+  }
+
+  article p, article ul li, .button {
+    font-size: 0.85rem;
+  }
+
+  .button {
+    padding: 8px 15px;
+  }
+
+  .social-icons a {
+    width: 35px;
+    height: 35px;
+  }
+
+  header img {
+    max-width: 200px;
+  }
+}
 
