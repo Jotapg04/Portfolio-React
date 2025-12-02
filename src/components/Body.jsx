@@ -1,6 +1,28 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 export default function Body() {
+
+  useEffect(() => {
+    const images = document.querySelectorAll(".image-container");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    images.forEach((img) => observer.observe(img));
+
+    return () => observer.disconnect();
+  }, []);
+
+
   return (
     <>
       <div id="about">
@@ -107,7 +129,6 @@ export default function Body() {
         </div>
       </div>
 
-      {/* CONTACT */}
       <div id="contact-me" className="contact-me">
         <p>¿Tienes un proyecto en mente?</p>
         <span>No dudes en contactar conmigo sin ningún tipo de compromiso</span>
